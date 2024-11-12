@@ -8,6 +8,7 @@ def knapsack_dp(weights, values, capacity):
         for w in range(capacity + 1):
             if weights[i - 1] <= w:
                 # Include the item and check the maximum value
+                # formula  m(i, w ) = max ( m[i-1 ,w ] , m[i-1 , w-w[i] ] + p[i] )
                 dp[i][w] = max(dp[i - 1][w], values[i - 1] + dp[i - 1][w - weights[i - 1]])
             else:
                 # Skip the item
